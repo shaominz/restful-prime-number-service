@@ -43,7 +43,7 @@
               <transformers>
                 <transformer />
                 <transformer>
-                  <mainClass>helloworld.application.HelloWorldApplication</mainClass>
+                  <mainClass>restful.prime.number.PrimeNumberApplication</mainClass>
                 </transformer>
               </transformers>
             </configuration>
@@ -166,14 +166,16 @@
     </plugins>
   </reporting>
   <properties>
-    <restassured.version>2.4.1</restassured.version>
-    <dropwizard.version>0.9.1</dropwizard.version>
-    <mockito.version>1.8.4</mockito.version>
     <jersey.version>2.22.1</jersey.version>
-    <guava.version>19.0</guava.version>
-    <java.version>1.8</java.version>
-    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <junit.version>4.11</junit.version>
+    <java.version>1.8</java.version>
+    <guava.version>19.0</guava.version>
+    <dropwizard.version>0.9.1</dropwizard.version>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    <restassured.version>2.4.1</restassured.version>
+    <commons.lang.version>2.6</commons.lang.version>
+    <mockito.version>1.8.4</mockito.version>
+    <spring.version>3.2.16.RELEASE</spring.version>
   </properties>
 </project>
 

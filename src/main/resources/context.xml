@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
+
+
+    <bean id="primeNumberCheckerFactory" class="restful.prime.number.model.impl.PrimeNumberCheckerFactory" />
+    <bean id="primeNumberGeneratorFactory" class="restful.prime.number.model.impl.PrimeNumberGeneratorFactory" />
+
+    <bean id="primeNumberChecker" factory-bean="primeNumberCheckerFactory" factory-method="createPrimeNumberChecker" />
+    <bean id="primeNumberGenerator" factory-bean="primeNumberGeneratorFactory" factory-method="createPrimeNumberGenerator" />
+    
+	<bean id="timeoutCompleteFutureExecutor" class="restful.prime.number.utils.TimeoutCompletableFutureExecutor" /> 
+	
+	<bean id="primeNumberService" class="restful.prime.number.model.impl.CompletableFuturePrimeNumberService">
+	  	<property name="timeoutCompleteFutureExecutor" ref="timeoutCompleteFutureExecutor" />
+	  	<property name="primeNumberChecker" ref="primeNumberChecker" />
+	  	<property name="primeNumberGenerator" ref="primeNumberGenerator" />
+	</bean>
+	
+	<bean id="primeNumberResource" class="restful.prime.number.resource.PrimeNumberResource">
+	  	<property name="primeNumberService" ref="primeNumberService" />
+	</bean>
+</beans>
